@@ -22,7 +22,7 @@
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:title="Note App">
+            app:title="Journal App">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"

@@ -20,6 +20,12 @@ public class ThoughtsAdapter extends RecyclerView.Adapter<ThoughtsAdapter.Though
     OnItemClickListener clickListener;
 
 
+    public ThoughtsAdapter(Context context, List<Thought> thoughts) {
+        this.context = context;
+        this.thoughts = thoughts;
+
+    }
+
 
     @Override
     public ThoughtsVH onCreateViewHolder(ViewGroup parent, int viewType) {
