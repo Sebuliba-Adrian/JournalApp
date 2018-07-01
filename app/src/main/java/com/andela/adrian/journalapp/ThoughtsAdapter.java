@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import java.util.List;
 
 /**
@@ -16,7 +17,8 @@ public class ThoughtsAdapter extends RecyclerView.Adapter<ThoughtsAdapter.Though
     Context context;
     List<Thought> thoughts;
 
-    OnItemClickListener clickListener;
+    private ItemClickListener clickListener;
+
 
 
     public ThoughtsAdapter(Context context, List<Thought> thoughts) {
@@ -30,6 +32,7 @@ public class ThoughtsAdapter extends RecyclerView.Adapter<ThoughtsAdapter.Though
     public ThoughtsVH onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.thought_item, parent, false);
         ThoughtsVH viewHolder = new ThoughtsVH(view);
+
         return viewHolder;
     }
 
@@ -49,25 +52,24 @@ public class ThoughtsAdapter extends RecyclerView.Adapter<ThoughtsAdapter.Though
         TextView title, thought;
         public ThoughtsVH(View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.thought_item_title);
-            thought = itemView.findViewById(R.id.thought_item_desc);
+            title = (TextView) itemView.findViewById(R.id.thought_item_title);
+            thought = (TextView) itemView.findViewById(R.id.thought_item_desc);
 
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            clickListener.onItemClick(view, getAdapterPosition());
+            if (clickListener != null) clickListener.onClick(view, getAdapterPosition());
         }
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(View view, int position);
-    }
 
-    public void SetOnItemClickListener(final OnItemClickListener itemClickListener) {
+
+
+
+    public void setClickListener(ItemClickListener itemClickListener) {
         this.clickListener = itemClickListener;
     }
-
 
 }
