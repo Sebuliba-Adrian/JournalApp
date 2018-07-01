@@ -16,7 +16,7 @@ public class AddThoughtActivity extends AppCompatActivity {
 
     EditText etTitle, etDesc;
 
-    String title, note;
+    String title, thought;
     long time;
 
     boolean editingThought;
@@ -26,11 +26,11 @@ public class AddThoughtActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_thought);
 
-        toolbar = findViewById(R.id.addnote_toolbar);
+        toolbar = findViewById(R.id.add_thought_toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_clear_24dp);
 
-        getSupportActionBar().setTitle("Add new note");
+        getSupportActionBar().setTitle("Add new thought");
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,19 +40,19 @@ public class AddThoughtActivity extends AppCompatActivity {
         });
 
 
-        etTitle = findViewById(R.id.addnote_title);
-        etDesc = findViewById(R.id.addnote_desc);
+        etTitle = findViewById(R.id.add_thought_title);
+        etDesc = findViewById(R.id.add_thought_desc);
 
-        fab = findViewById(R.id.addnote_fab);
+        fab = findViewById(R.id.add_thought_fab);
 
         editingThought = getIntent().getBooleanExtra("isEditing", false);
         if (editingThought) {
             title = getIntent().getStringExtra("thought_title");
-            note = getIntent().getStringExtra("thought");
+            thought = getIntent().getStringExtra("thought");
             time = getIntent().getLongExtra("thought_time", 0);
 
             etTitle.setText(title);
-            etDesc.setText(note);
+            etDesc.setText(thought);
 
         }
 
@@ -72,8 +72,8 @@ public class AddThoughtActivity extends AppCompatActivity {
                  * TODO: Check if thought exists before saving
                  */
                 if (!editingThought) {
-                    Thought note = new Thought(newTitle, newDesc, newTime);
-                    note.save();
+                    Thought thought = new Thought(newTitle, newDesc, newTime);
+                    thought.save();
                 } else {
                     List<Thought> thoughts = Thought.find(Thought.class, "title = ?", title);
                     if (thoughts.size() > 0) {

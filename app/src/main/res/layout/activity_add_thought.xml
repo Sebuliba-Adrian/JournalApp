@@ -7,7 +7,7 @@
 
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/addnote_toolbar"
+        android:id="@+id/add_thought_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize" />
 
@@ -24,7 +24,7 @@
             android:layout_marginTop="@dimen/activity_horizontal_margin">
 
             <EditText
-                android:id="@+id/addnote_title"
+                android:id="@+id/add_thought_title"
                 style="@style/TextAppearance.AppCompat.Display1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:layout_marginTop="@dimen/activity_horizontal_margin">
 
             <EditText
-                android:id="@+id/addnote_desc"
+                android:id="@+id/add_thought_desc"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:gravity="top"
@@ -58,7 +58,7 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/addnote_fab"
+        android:id="@+id/add_thought_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
