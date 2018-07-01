@@ -7,7 +7,7 @@ import com.orm.SugarRecord;
  */
 
 public class Thought extends SugarRecord {
-    private String title, thought;
+    String title, thought;
     long time;
 
     public Thought() {
